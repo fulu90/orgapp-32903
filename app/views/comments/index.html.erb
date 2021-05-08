@@ -1,20 +1,33 @@
 <!DOCTYPE HTML>
+
 <div class="orgapp">
-  <div class="title">
-    <%# <%= image_tag "jonathan-cooper-Hb2mgY8DeeU-unsplash.jpg", class:"list-pict" %> 
-    <%# <%= image_tag "6f8ce0be342a5442c5f40ecaeb2873a7.png", class:"head-title" %> 
-    Let's Communicate
+  <%# トップ画面上段 %>
+  <div class="Upper-row">
+    <div class="head">
+      <div class="left-head">
+        Let's Communicate
+      </div>
+      <div class="right-head">
+        <a href="#" class="login-button">ログイン</a>
+        <a href="#" class="new-button">新規登録</a>
+      </div>
+    </div>
+    <%# トップ画面上段 %>
+
+    <%# 日付表示＆業務連絡 %>
+    <div class="date-contact">
+      <div class="date">
+      　2021年 5月 4日 (水)
+      </div>
+      <div class="contact">
+        <input class="form-msg" placeholder= "Please enter a business contact">
+        <a href="#" class="edit-button">編集</a>
+      </div>
+    </div>
+    <%# 日付表示＆業務連絡 %>
   </div>
 
-  <div class="head-info">
-    <div class="date">
-      5月4日
-    </div>
-    <div class="contact">
-      業務連絡
-    </div>
-  </div>
-
+<%# チャット画面 %>
   <div class="wrapper">
     <div class="side-bar">
       <%= render "side_bar" %>
@@ -23,4 +36,5 @@
       <%= render "main_chat" %>
     </div>
   </div>
+  <%# チャット画面 %>
 </div>
