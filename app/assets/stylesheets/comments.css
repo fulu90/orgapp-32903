@@ -1,0 +1,265 @@
+.Upper-row{
+  background-image: url(cc7401db3e376fa34e8d9af966557c69.jpg);
+}
+
+
+.head{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 20px 110px 0 0;
+}
+
+.left-head{
+  padding: 20px 0 0 50px;
+  color: white;
+}
+
+.login-button{
+  text-decoration: none;
+  border: 1px solid black;
+  color: black;
+  background-color: #f0c538f3;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+.new-button{
+  text-decoration: none;
+  border: 1px solid black;
+  color: black;
+  background-color: #f0c538f3;
+  padding: 15px;
+  margin-right: 60px;
+}
+
+.date-contact {
+  display: flex;
+}
+
+.date {
+  width: 300px;
+  height: 100px;
+  font-size: 20px;
+  color: white;
+  padding: 30px;
+}
+
+.contact {
+  width: calc(100vw - 300px);
+  height: 100px;
+  padding: 10px;
+}
+
+.form-msg{
+  padding: 10px;
+  height: 80px;
+  width: calc(100vw - 450px);
+}
+
+.edit-button{
+  text-decoration: none;
+  border: 1px solid black;
+  color: black;
+  background-color: #f0c538f3;
+  padding: 20px;
+  margin-left: 30px;
+}
+
+
+
+
+.wrapper {
+  display: flex;
+}
+
+.side-bar {
+  background-color: #253141;
+  width: 300px;
+}
+
+.side-bar-header {
+  padding: 15px;
+  height: 75px;
+  background-color: #253141;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-room a {
+  font-size: 10px;
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.rooms {
+  background-color: #2F3E51;
+  height: 200px;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.room{
+  padding: 20px 0 10px;
+}
+
+.room-name a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-list-header{
+  padding: 15px;
+  height: 75px;
+  background-color: #253141;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.user-list{
+  font-size: 10px;
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.users {
+  background-color: #2F3E51;
+  height: calc(100vh - 500px);
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.user{
+  padding: 20px;
+}
+
+.user-name a{
+  padding-bottom: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+.chat {
+  background-color: #FFFFFF;
+  width: calc(100vw - 300px);
+}
+
+.chat-header {
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-title{
+  color: #333;
+  font-size: 24px;
+  margin-top: 36px;
+}
+
+.right-header{
+  padding: 40px 10px 0 0;
+}
+
+.end-button a {
+  text-decoration: none;
+  border: 2px solid darkred;
+  color: darkred;
+  padding: 15px;
+}
+
+
+
+.chat-main{
+  display: flex;
+}
+
+.messages {
+  background-color: #FAFAFA;
+  height: calc(100vh - 100px - 90px - 150px);
+  overflow: scroll;
+  width: calc(100vw - 500px);
+}
+
+.message{
+  margin: 10px 0 0 0;
+}
+
+.upper-message{
+  display: flex;
+}
+
+.message-name{
+  color: #434a54;
+  font-size: 12px;
+  padding-left: 20px;
+}
+
+.message-date{
+  color: #999;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.lower-message{
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.message-content{
+  color: #434a54;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+
+
+.memo{
+  background-color: #FAFAFA;
+}
+
+.memo-text{
+  margin-top: 20px;
+  height: calc(100vh - 380px);
+}
+
+
+
+
+.form {
+  background-color: #49260ab9;
+  height: 90px;
+  padding: 20px 40px;
+  display: flex;
+}
+
+.form-input{
+  background-color: white;
+  width: 100%;
+}
+
+.form-message{
+  border: none;
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.form-submit{
+  background-color: #f0c538f3;
+  border: none;
+  color: black;
+  font-size: 16px;
+  height: 50px;
+  margin-left: 15px;
+  padding: 0 20px;
+}
