@@ -27,7 +27,7 @@
       </div>
       <div class="lower-message">
         <div class="message-content">
-          おはよう
+          こんにちは
         </div>
       </div>
     </div>
@@ -60,10 +60,13 @@
 </div>
 
 <%# 送信フォーム %>
-<div class="form">
+<%= form_with model: [@room, @comment], class: 'form', local: true do |f| %>
+<%# <div class="form"> %>
   <div class="form-input">
-    <input class="form-message" placeholder= "type a message">
+    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+    <%# <input class="form-message" placeholder= "type a message"> %>
   </div>
-  <input class="form-submit" type="submit" value="送信">
-</div>
+  <%= f.submit '送信', class: 'form-submit' %>
+  <%# <input class="form-submit" type="submit" value="送信"> %>
+<% end %>
 <%# 送信フォーム %>
