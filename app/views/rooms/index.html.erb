@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<div class="orgapp">
+  <%# トップ画面上段 %>
+  <div class="Upper-row">
+    <div class="head">
+      <div class="left-head">
+        Let's Communicate
+      </div>
+      <div class="right-head">
+        <% if user_signed_in? %>
+          <%= link_to current_user.name, "#", class: "login-name" %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+        <% else %>
+          <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+          <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+        <% end %>
+      </div>
+    </div>
+    <%# トップ画面上段 %>
+
+    <%# 日付表示＆業務連絡 %>
+    <div class="date-contact">
+      <div class="date">
+      　2021年 5月 4日 (水)
+      </div>
+      <div class="contact">
+        <input class="form-msg" placeholder= "Please enter a business contact">
+        <a href="#" class="edit-button">編集</a>
+      </div>
+    </div>
+    <%# 日付表示＆業務連絡 %>
+  </div>
+
+<%# チャット画面 %>
+  <div class="wrapper">
+    <div class="side-bar">
+      <%= render "comments/side_bar" %>
+    </div>
+  </div>
+  <%# チャット画面 %>
+</div>
