@@ -16,7 +16,8 @@
 <div class="chat-main">
   <%# チャットメッセージ %>
   <div class="messages">
-    <div class="message">
+    <%= render partial: 'comment', collection: @comments %>
+    <%# <div class="message">
       <div class="upper-message">
         <div class="message-name">
           name
@@ -46,7 +47,7 @@
           こんばんは
         </div>
       </div>
-    </div>
+    </div> %>
   </div>
   <%# チャットメッセージ %>
   

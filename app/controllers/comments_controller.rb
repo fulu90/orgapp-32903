@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def index
     @comment = Comment.new
     @room = Room.find(params[:room_id])
+    @comments = @room.comments.includes(:user)
   end
 
   def create
@@ -10,6 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to room_comments_path(@room)
     else
+      @comments = @room.comments.includes(:user)
       render :index
     end
   end
