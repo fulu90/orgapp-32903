@@ -1,0 +1,20 @@
+<div class="contact-edit-wrapper">
+  <h1>業務連絡 編集画面</h1>
+  <%=form_with model: @contact, local: true do |f|%>
+    <div class='contact-form__field'>
+      <div class='contact-form__field--left'>
+        <%= f.label :業務連絡内容, class: 'contact-form__label'%>
+      </div>
+      <div class='contact-form__field--right'>
+        <%= f.text_area :message, class: 'contact-text', placeholder: '連絡内容' %>
+      </div>
+    </div>
+    <div class='contact-form__field'>
+      <div class='contact-form__field--left'></div>
+      <div class='contact-form__field--right'>
+        <%= f.submit class: 'contact-action-btn'%>
+        <%= link_to '戻る', root_path, class: 'contact-return' %>
+      </div>
+    </div>
+  <% end %>
+</div>

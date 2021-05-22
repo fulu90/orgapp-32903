@@ -1,5 +1,8 @@
 class RoomsController < ApplicationController
   def index
+    @time = Time.new
+    @week = %w(日 月 火 水 木 金 土)[@time.wday]
+    @contact = Contact.first
   end
   
   def new

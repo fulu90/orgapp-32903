@@ -7,8 +7,8 @@
   </div>
   <div class="right-header">
     <div class="end-button">
-      <%= link_to 'チャット終了', room_path(@room), method: :delete %>
-      <%# <a href="#">チャット終了</a> %>
+      <%= link_to 'チャット終了', root_path %>
+      <%= link_to '削除', room_path(@room), method: :delete %>
     </div>
   </div>
 </div>
@@ -22,11 +22,13 @@
   <%# チャットメッセージ %>
   
   <%# メモ %>
+  <% if current_user.admin? %>
   <div class="memo">
     <div class="memo-form">
       <input class="memo-text" placeholder= "memo">
     </div>
   </div>
+  <% end %>
   <%# メモ %>
 </div>
 

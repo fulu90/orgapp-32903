@@ -28,13 +28,15 @@
 
 <%# ユーザー名表示 %>
 <div class="users">
+<%# <% @user.each do |user| %>
   <ul class="user">
     <li class="user-name">
-      <a href="#">user1</a>
+      <a href="#"><%= current_user.name %></a>
     </li>
-    <li class="user-name">
+    <%# <li class="user-name">
       <a href="#">user2</a>
-    </li>
+    </li> %>
   </ul>
+<%# <% end %>
 </div>
 <%# ユーザー名表示 %>

@@ -5,7 +5,7 @@
   <div class="Upper-row">
     <div class="head">
       <div class="left-head">
-        Let's Communicate
+        TOP PAGE
       </div>
       <div class="right-head">
         <% if user_signed_in? %>
@@ -22,11 +22,25 @@
     <%# 日付表示＆業務連絡 %>
     <div class="date-contact">
       <div class="date">
-      　2021年 5月 4日 (水)
+      　<%= @time.year %>年<%= @time.month %>月<%= @time.day %>日 (<%= @week %>)
       </div>
       <div class="contact">
-        <input class="form-msg" placeholder= "Please enter a business contact">
-        <a href="#" class="edit-button">編集</a>
+        <% if @contact && @contact.message != "" %>
+          <div class="form-msg"><%= @contact.message %></div>
+        <% else %>
+          <div class="form-msg">- 業務連絡 -</div>
+        <% end %>
+        <%# placeholder= "Please enter a business contact"> %>
+        <% if current_user.admin? %>
+          <% if @contact %>
+            <%= link_to '編集', edit_contact_path(@contact), class: "edit-button" %>
+          <% else %>
+            <%= link_to '編集', new_contact_path, class: "edit-button" %>
+          <% end %>
+        <%# <input class="form-msg" placeholder= "Please enter a business contact">
+        <% if current_user.admin? %>
+        <%# <a href="#" class="edit-button">編集</a> %>
+        <% end %>
       </div>
     </div>
     <%# 日付表示＆業務連絡 %>

@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
   def index
+    @time = Time.new
+    @week = %w(日 月 火 水 木 金 土)[@time.wday]
     @comment = Comment.new
     @room = Room.find(params[:room_id])
     @comments = @room.comments.includes(:user)
+    @contact = Contact.first
   end
 
   def create
