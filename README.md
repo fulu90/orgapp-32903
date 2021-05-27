@@ -1,101 +1,116 @@
-# テーブル設計
+## アプリケーション名 
+  「orgapp-32903」  
+  
+<br> 
+  
+## アプリケーション概要  
+  チーム責任者（管理者）のためのチーム管理を目的に利用するチャットアプリです。
 
-## usersテーブル
+<br>
 
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| name     | string  | null: false |
-| email    | string  | null: false |
-| password | string  | null: false |
+## テスト用アカウント  
+  (管理者アカウント)  
+  ID: admin@test  
+  Pass: admin1234  
 
-## Association
+  (一般アカウント)  
+  ID: test@test  
+  Pass: zaq12wsx  
 
-- has_many :room_users
-- has_many :rooms, through: room_users
-- has_many :comments
-- belongs_to :u_memo
-- belongs_to :my_memo
+<br>
 
+## 利用方法
+  (ユーザー管理機能)  
+  ・管理者ユーザは固定の管理者アカウントを使用します。  
+  ・新規一般ユーザは「新規登録」にてアカウントを作成します。  
 
-## roomsテーブル
+  (業務連絡機能)  
+  ・管理者アカウントでログインします。  
+  ・トップページ業務連絡欄の「編集」より、連絡内容入力します。  
+  
+  (チャット機能)  
+  ・トップページ「チャットルーム作成」より新規チャットルームを作成します。  
+  ・作成した「ルーム名」を選択し、チャットページのフォームよりメッセージを送信します。  
+  ・チャットルーム「チャット終了」にてチャットページが閉じます。  
+  ・チャットルーム「削除」にてチャットルームが削除されます。  
 
-| Column  | Type   | Options     |
-| ------- | ------ | ----------- |
-| tname   | string | null: false |
+<br>
 
-## Association
+## 目指した課題解決
+  チーム責任者（管理者）がチームを管理するためのアプリであり、  
+  チームメンバとのコミュニケーションや情報共有がしやすい、  
+  チーム責任者の手助けとなるアプリを目指しました。  
 
-- has_many :room_users
-- has_many :users, through: room_users
-- has_many :comments
-- belongs_to :r_memo
+<br>
 
+## 洗い出した要件
 
-## room_usersテーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| room     | references | null: false, foreign_key: true |
-
-## Association
-
-- belongs_to :room
-- belongs_to :user
-
-
-## commentsテーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| content  | string     |                                |
-| user     | references | null: false, foreign_key: true |
-| room     | references | null: false, foreign_key: true |
-
-## Association
-
-- belongs_to :room
-- belongs_to :user
+| 優先順位  (高:3 中:2 低:1) | 機能 | 目的 | 詳細 | ストーリー(ユースケース) | 見積もり(所要時間) |
+| :---: | --- | --- | --- | --- | :---: |
+| 3 | ユーザー管理機能 | ユーザー新規登録／ログイン／ログアウトができる様にする | 管理者アカウントと一般アカウントで使い分けができる | ・ログアウト時は「ログイン」「新規作成」と表示。<br>・ログイン時は「自分の名前」「ログアウト」表示。<br>・新規作成ページに遷移し、新規アカウントを作成。<br>・管理者アカウント、一般アカウントで表示する画面内容が異なる。 | 30 |
+| 3 | チャット機能 | チームに所属するメンバとコミュニケーションがとれる | 個人、複数人とチャットができる | ・「チーム新規作成」より新規作成画面へ遷移。チームを作成後、トップページに表示。ルームメンバは個人もしくは複数人の選択ができる。<br>・「削除」ボタンでルームが削除される。<br>・チーム名を選択すると、チャットルームへ遷移。送信したメッセージは個人名、メッセージ本文、時間が表示。 | 15 |
+| 2 | 業務連絡 | チーム管理者がチームメンバ全員に業務連絡や目標など設定できる | トップページに常に表示させ、チーム目標など各自がいつでも確認できる様にする | ・トップ画面上位にテキスト表示。<br>・管理者アカウントの場合は「編集」表示。編集画面へ遷移し、編集ができる。一般アカウントの場合は「編集」無し。 | 15 |
+| 2 | メモ機能 | チーム管理者がメンバ管理目的で記録を残せる | チャットルーム毎にテキストの利用ができる | ・管理者のみの機能。<br>・チャットルームにテキストが表示。<br>・チャットルームを終了し、再度開いてもメモ情報は残る。<br>・チャットルーム削除でメモも削除される。 | 30 |
+| 2 | 出勤者リスト表示 | 管理者が社員の出勤状況を把握する | ログイン、ログアウトで出勤者を把握する | ・ログインしたユーザ情報がトップページに表示。<br>・ログアウトでトップページから削除。 | 30 |
+| 1 | 日付表示 | 当日の日付を確認する事ができる | 日付と曜日を表示する | ・トップ画面に今日の日付、曜日が表示。 | 1 |
 
 
-## u_memosテーブル
+<br>
+<br>
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| u_text   | string     |                                |
-| user     | references | null: false, foreign_key: true |
+## 実装した機能についての画像やGIF及びその説明
 
-## Association
+<br>
 
-- belongs_to :user
+[![Image from Gyazo](https://i.gyazo.com/056598a7bebb0e921ba9d5774eacb10a.gif)](https://gyazo.com/056598a7bebb0e921ba9d5774eacb10a)
+ 
+説明：新規チャットルームを作成しています。
 
+<br>
 
-## r_memosテーブル
+[![Image from Gyazo](https://i.gyazo.com/bfcc41bef684956cddeea16ff79620f0.gif)](https://gyazo.com/bfcc41bef684956cddeea16ff79620f0)
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| r_text   | string     |                                |
-| room     | references | null: false, foreign_key: true |
+説明：チャットルームより、メッセージを送信しています。
 
-## Association
+<br>
 
-- belongs_to :room
+[![Image from Gyazo](https://i.gyazo.com/3fa27f72b958890622502fc2ebddc820.gif)](https://gyazo.com/3fa27f72b958890622502fc2ebddc820)
 
+説明：チャットルームを終了し、再度立ち上げています。
 
-## my_memosテーブル
+<br>
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| m_text   | string     |                                |
-| user     | references | null: false, foreign_key: true |
+[![Image from Gyazo](https://i.gyazo.com/ff9cf1893875b153b8d7724a1785832a.gif)](https://gyazo.com/ff9cf1893875b153b8d7724a1785832a)
 
-## Association
+説明：チャットルームを削除しています。
 
-- belongs_to :user
+<br>
 
+[![Image from Gyazo](https://i.gyazo.com/3068df09d7eedfa7073c325a585a0e90.gif)](https://gyazo.com/3068df09d7eedfa7073c325a585a0e90)
 
-## contactsテーブル
+説明：業務連絡欄に連絡内容を入力し、トップページで表示させています。
 
-| Column   | Type       | Options     |
-| -------- | ---------- | ----------- |
-| message  | string     |             |
+<br>
+
+## 実装予定の機能
+・メモ機能  
+・出勤者リスト表示    
+
+<br>
+
+## ローカルでの動作方法
+  (環境)  
+  ruby version 2.6.5  
+  (必要パッケージ)  
+   'devise'  
+
+  (必要コマンド)  
+  rails db:create  
+  rails db:migrate  
+  rails s  
+
+<br>
+
+# データベース設計
+
+[![Image from Gyazo](https://i.gyazo.com/3dc94ec239f78d101e165d601ca53a42.png)](https://gyazo.com/3dc94ec239f78d101e165d601ca53a42)
