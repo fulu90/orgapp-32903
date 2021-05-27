@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @room = Room.find(params[:room_id])
     @comments = @room.comments.includes(:user)
     @contact = Contact.first
+    @memo = Memo.find_by(room_id: @room)
   end
 
   def create

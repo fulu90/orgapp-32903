@@ -22,13 +22,14 @@
   <%# チャットメッセージ %>
   
   <%# メモ %>
-  <% if current_user.admin? %>
-  <div class="memo">
-    <div class="memo-form">
-      <input class="memo-text" placeholder= "memo">
-    </div>
-  </div>
-  <% end %>
+  <%# <% if current_user.admin? %> 
+    <%# <%=form_with model: @memo, url: room_memos_path, local: true do |m| %> 
+      <%# <div class="memo"> %>
+          <%# <%= m.text_area :mtext, class: 'memo-text', placeholder: "memo" %> 
+      <%# </div> %>
+      <%# <%= m.submit '保存', class: 'memo-action-btn' %> 
+    <%# <% end %> 
+  <%# <% end %> 
   <%# メモ %>
 </div>
 

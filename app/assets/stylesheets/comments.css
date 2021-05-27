@@ -256,8 +256,9 @@
 } */
 
 .memo-text{
-  margin-top: 20px;
-  height: calc(100vh - 380px);
+  margin: 10px 10px 0 0;
+  /* height: calc(100vh - 380px); */
+  padding-bottom: 250px;
 }
 
 

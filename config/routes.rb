@@ -5,5 +5,11 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create, :edit, :update]
   resources :rooms, only: [:new, :create, :destroy] do
     resources :comments, only: [:index, :create]
+    resources :memos, only: :create do
+      collection do
+        post 'update'
+        patch 'update'
+      end
+    end
   end
 end
